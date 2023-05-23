@@ -1,0 +1,12 @@
+MUST DO:
+
+1) Finish Project Section
+2) Finish Contact Section
+
+POSSIBLE TO DO:
+
+1) Scrolling to make things appear?
+2) Typing animations for rest of website?
+3) READ ME for projects on GitHub
+4) RESPONSIVENESS 
+5) Finish JS for hamburger navbar

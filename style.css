@@ -1,0 +1,369 @@
+:root {
+    --primary: #14b0f88f;
+    --light: #eeeeee;
+    --dark: #212121;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    font-family: 'Fira sans', sans-serif;
+    /*border: 1px solid red;*/
+}
+
+
+/*webkit selectors used to customise scrollbar*/
+body::-webkit-scrollbar {
+    width: 0.5rem;
+}
+  
+body::-webkit-scrollbar-track {
+    background: var(--dark);
+}
+  
+body::-webkit-scrollbar-thumb {
+    background: var(--primary);
+}
+
+/*container of the navbar*/
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+nav {
+    height: 90px;;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99; /* will keep nav bar layered above everything else */
+    background-color: var(--dark);
+    padding: 16px 32px;
+    border-bottom: 6px solid var(--primary);
+}
+
+/*used for the logo in the nav bar (VIKASH SINGH)*/
+h1 {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/*for the hover effect of logo in nav bar (VIKASH SINGH)*/
+#animated-effect {
+    text-decoration: none;
+    background: linear-gradient(to right, #CCC 50%, var(--primary) 50%, #4ba2d4);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.7s ease-out;
+}
+
+#animated-effect:hover {
+    background-position: -100%;
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+    z-index:1;
+    user-select: none;
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background-color: var(--light);
+    border-radius: 6px;
+    z-index: 1;
+    transform-origin: 0 0;
+    transition: 0.4s;
+}
+
+/* nth-child(2) will affect the second span element i.e. the middle span*/
+.hamburger:hover span:nth-child(2){
+    transform: translateX(10px);
+    background-color: var(--primary);
+}
+
+.hamburger.is-active span:nth-child(1){
+    transform: translate(0px, -2px) rotate(45deg);
+}
+
+.hamburger.is-active span:nth-child(2){
+    opacity: 0;
+    transform: translateX(15px);
+}
+
+.hamburger.is-active span:nth-child(3) {
+    transform: translate(-3px, 3px) rotate(-45deg);
+}
+
+.hamburger.is-active:hover span {
+    background-color: var(--primary);
+}
+
+/*menu elements refer to the navbar buttons*/
+.menu { 
+    display: none;
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    margin: 0 -16px;
+}
+
+.menu a {
+    color: #eeeeee;
+    margin: 0 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.4s;
+    padding:8px 16px;
+    border-radius: 99px;
+}
+
+.menu a.is-active, .menu a:not(.no-hover):hover {
+  background-color: var(--primary);
+}
+
+.menu img {
+    width: 36px;
+    height: 36px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+  
+.tooltip:before {
+    content: attr(title);
+    position: absolute;
+    top: 85%;
+    left: 55%;
+    transform: translateX(-50%);
+    padding: 4px 8px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+  
+.tooltip:hover:before {
+    opacity: 1;
+}
+
+/*the greeting text on the first page and the typing animation*/
+.text-container {
+    position:absolute;
+    top:40%;
+    left: 80px;
+    padding-left: 10px;
+    border-right: 5px solid;
+    width: 37%;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: 
+        typing 2s steps(51),
+        cursor .4s step-end infinite alternate;
+}
+
+@keyframes cursor {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
+/*the 3 seperate lines of the front page*/
+.p-intro {
+    font-size: 45px;
+}
+
+.p-name {
+    font-size: 60px;
+    font-style:oblique;
+    letter-spacing: 3px;
+}
+
+.p-title {
+    font-size: 50px;
+    font-family: monospace;
+    letter-spacing: 3px;;
+}
+
+/*where the background colour and font colour is set for the whole page*/
+main {
+    color: #1f1e1e;
+    background-color: #dbdee2;
+    background-image: linear-gradient(to bottom right, #ffffff, #0c213d);
+}
+
+#home,
+#about,
+#projects,
+#contact {
+  height: 100vh;
+}
+
+/*affects the 3 seperate headings after home page (about, projects, contact)*/
+h2 {
+    font-size: 50px;
+    font-weight: 600;
+    position: relative;
+    margin-top: 110px;
+    margin-left: 80px;
+    max-width: 300px;
+}
+
+#about-container {
+    background-color: #183964;
+    background-image: linear-gradient(to bottom right, #4470aa, #202833);
+    color: #d9edf7;
+    margin-top: 40px;
+    margin-left: 80px;
+    margin-right: 80px;
+    max-width: 1100px;
+    font-style:monospace;
+    letter-spacing: 1.5px;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.continue-to-projects-text {
+    background-color: #1b447a;
+    background-image: linear-gradient(to bottom right, #72a5e4, #081931);
+    border-radius: 10px;
+    height: 80px;
+    padding: 15px;
+    margin-top: 40px;
+    margin-left: 80px;
+    margin-right: 80px;
+    color: #ffffff;
+    font-style: monospace;
+    font-size: 18px;
+    max-width: 500px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.QA-span {
+    background-color: #0c213d;
+    color: #00edb5;
+    font-style: oblique;
+}
+
+.CS-span {
+    background-color: #000000;
+    color: #fac400;
+    font-style: oblique;
+}
+
+.list-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+    margin-left: 100px;
+}
+
+.left-list,
+.right-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-list li,
+.right-list li {
+    font-style: monospace;
+    letter-spacing: 1px;
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+#projects-container {
+    margin-left: 80px;
+    margin-top: 20px;
+    display: flex;
+}
+
+.card {
+    background-color: white;
+    width: 23%;
+    height: 70vh;
+    margin: 10px;
+    border-radius: 15px;
+    overflow: auto;
+}
+
+.card h3, p {
+    padding: 5px;
+}
+
+.card-image {
+    height: 40%;
+    margin-bottom: 15px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 15px 15px 0 0;
+}
+
+.project-1 {
+    background-image: url("https://cdn.vox-cdn.com/thumbor/5RE8QrGkq5zVJ5Cx0RWx1NhckDA=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/11532349/image1.jpeg"); 
+}
+
+.project-2 {
+    background-image: url("https://assets.xboxservices.com/assets/65/29/65291dac-b5d7-4e09-ab84-62bb86d4b5c9.jpg?n=MS-Rewards_Content-Placement-0_Redeem-Points_788x444_02.jpg");
+}
+
+.project-3 {
+    background-image: url("https://i0.wp.com/theluxurytravelexpert.com/wp-content/uploads/2020/01/herbay.jpg?fit=1500%2C844&ssl=1");
+}
+
+.project-4 {
+    background-image: url("https://www.gamespot.com/a/uploads/screen_kubrick/1639/16394540/4057180-mwii-launch-progression-tout-new.jpg");
+}
+
+
+/*converts the navbar into a hamburger style menu when screen is small enough*/
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+    .menu {
+        display: block;
+    }
+}
+
+/*for screens with a maximum width of 768px or less */
+@media screen and (max-width: 768px) {
+    
+    
+}
