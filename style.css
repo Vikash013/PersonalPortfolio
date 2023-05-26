@@ -229,25 +229,31 @@ main {
 
 /*affects the 3 seperate headings after home page (about, projects, contact)*/
 h2 {
-    font-size: 50px;
+    font-size: clamp(2rem, 4vw, 3rem); /*changes font-size based on screen size 'fluidly'*/
     font-weight: 600;
     position: relative;
     margin-top: 110px;
     margin-left: 80px;
-    max-width: 300px;
+    max-width: 350px;
+    /*the gradient effect for the heading titles*/
+    background: linear-gradient(90deg, #1f1f1f, #107daf8f);
+    text-transform: uppercase;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
 }
 
 #about-container {
     background-color: #183964;
-    background-image: linear-gradient(to bottom right, #43b7ec8f, #01011a);
+    background-image: linear-gradient(to bottom right, #fafdff8f, #1b1b1b);
     color: #ebf7ff;
-    margin-top: 40px;
+    margin-top: 50px;
     margin-left: 80px;
     margin-right: 80px;
-    max-width: 1500px;
+    max-width: 1300px;
     font-style:monospace;
     letter-spacing: 1.5px;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
     padding: 20px;
     border-radius: 10px;
@@ -255,7 +261,7 @@ h2 {
 
 .continue-to-projects-text {
     background-color: #1b447a;
-    background-image: linear-gradient(to bottom right, #43b7ec8f, #01011a);
+    background-image: linear-gradient(to bottom right, #fafdff8f, #1b1b1b);
     border-radius: 10px;
     height: 80px;
     padding: 15px;
@@ -301,10 +307,10 @@ article a {
 .left-list li,
 .right-list li {
     font-style: monospace;
+    font-style: italic;
     letter-spacing: 1px;
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 10px;
-    font-weight: 600;
 }
 
 #projects-container {
@@ -397,6 +403,34 @@ article a {
   
 .card::-webkit-scrollbar-thumb {
     background: var(--primary);
+}
+
+.contact-me-container {
+    margin-left: 80px;
+    width: 70%;
+}
+
+input {
+
+}
+
+textarea {
+
+}
+
+#submit-button {
+
+}
+
+.contact-me-element {
+    display: block;
+    font-size: 20px;
+    background-color: rgb(63, 63, 63);
+    color: white;
+    padding: 16px 16px;
+    margin: 16px 16px;
+    border-radius: 10px;
+    border-color: #000000;
 }
 
 
