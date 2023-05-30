@@ -11,6 +11,7 @@
     box-sizing: border-box;
     font-family: 'Fira sans', sans-serif;
     /*border: 1px solid red;*/
+    /*NOTE: when border is uncommented it causes unwanted white space at bottom of site*/
 }
 
 /*webkit selectors used to customise scrollbar*/
@@ -26,8 +27,7 @@ body::-webkit-scrollbar-thumb {
     background: var(--primary);
 }
 
-/*container of the navbar*/
-.container {
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,7 +51,8 @@ nav {
 /*used for the logo in the nav bar (VIKASH SINGH)*/
 h1 {
     color: #ffffff;
-    font-size: 32px;
+    font-size: 30px;
+    line-height: 1.5;
     font-weight: 900;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -70,54 +71,6 @@ h1 {
 
 #animated-effect:hover {
     background-position: -100%;
-}
-
-.hamburger {
-    display: block;
-    position: relative;
-    z-index:1;
-    user-select: none;
-    appearance: none;
-    border: none;
-    outline: none;
-    background: none;
-    cursor: pointer;
-}
-
-.hamburger span {
-    display: block;
-    width: 33px;
-    height: 4px;
-    margin-bottom: 5px;
-    position: relative;
-    background-color: var(--light);
-    border-radius: 6px;
-    z-index: 1;
-    transform-origin: 0 0;
-    transition: 0.4s;
-}
-
-/* nth-child(2) will affect the second span element i.e. the middle span*/
-.hamburger:hover span:nth-child(2){
-    transform: translateX(10px);
-    background-color: var(--primary);
-}
-
-.hamburger.is-active span:nth-child(1){
-    transform: translate(0px, -2px) rotate(45deg);
-}
-
-.hamburger.is-active span:nth-child(2){
-    opacity: 0;
-    transform: translateX(15px);
-}
-
-.hamburger.is-active span:nth-child(3) {
-    transform: translate(-3px, 3px) rotate(-45deg);
-}
-
-.hamburger.is-active:hover span {
-    background-color: var(--primary);
 }
 
 /*menu elements refer to the navbar buttons*/
@@ -247,10 +200,10 @@ h2 {
     background-color: #183964;
     background-image: linear-gradient(to bottom right, #fafdff8f, #1b1b1b);
     color: #ebf7ff;
-    margin-top: 50px;
-    margin-left: 80px;
-    margin-right: 80px;
-    max-width: 1300px;
+    margin-top: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
     font-style:monospace;
     letter-spacing: 1.5px;
     font-size: 20px;
@@ -260,18 +213,10 @@ h2 {
 }
 
 .continue-to-projects-text {
-    background-color: #1b447a;
-    background-image: linear-gradient(to bottom right, #fafdff8f, #1b1b1b);
-    border-radius: 10px;
-    height: 80px;
-    padding: 15px;
-    margin-top: 40px;
-    margin-left: 80px;
-    margin-right: 80px;
+    margin-top: 20px;
     color: #ffffff;
     font-style: monospace;
     font-size: 18px;
-    max-width: 500px;
 }
 
 /*for the QA and CS (Changing Social) links*/
@@ -315,6 +260,7 @@ article a {
 
 #projects-container {
     margin-left: 80px;
+    margin-right: 80px;
     margin-top: 20px;
     display: flex;
 }
@@ -406,55 +352,72 @@ article a {
 }
 
 .contact-me-container {
-    margin-left: 80px;
-    width: 70%;
-}
-
-input {
-
-}
-
-textarea {
-
-}
-
-#submit-button {
-
+    margin-top: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
 }
 
 .contact-me-element {
-    display: block;
-    font-size: 20px;
     background-color: rgb(63, 63, 63);
     color: white;
-    padding: 16px 16px;
-    margin: 16px 16px;
     border-radius: 10px;
     border-color: #000000;
+    display: block;
+    font-size: 20px;
+    padding: 16px 16px;
+    margin: 26px 16px;
+    min-width: 90%;
+}
+
+.contact-me-element:focus-within {
+    outline: none;
+    border-color: var(--primary);
+    border-width: 2.5px;
+}
+
+button:hover {
+    background-color: var(--primary);
+    cursor: pointer;
+    transition: all 1.1s ease;
+}
+
+footer {
+    background-color: var(--dark);
+    color: #ffffff;
 }
 
 
-/*converts the navbar into a hamburger style menu when screen is small enough*/
+/*makes navbar collapse when screen size is too small*/
 @media (min-width: 768px) {
-    .hamburger {
-        display: none;
-    }
     .menu {
         display: block;
     }
 }
 
-/*for screens with a maximum width of 768px or less */
-@media screen and (max-width: 768px) {
-    
-    
-}
-
-
-
-/*For About section - need to alter */
 @media (max-width: 768px) {
-    /* Adjust the styles for smaller screens */
+
+    .text-container {
+        width: auto;
+        padding-left: 0;
+        border-right: none;
+        white-space: normal;
+        overflow: visible;
+        animation: typing 2s steps(51), cursor .4s step-end infinite alternate;
+    }
+
+    .p-intro {
+        font-size: 30px;
+    }
+
+    .p-name {
+        font-size: 30px;
+    }
+
+    .p-title {
+        font-size: 30px;
+    }
+
     #about-container {
       margin-left: 40px;
       margin-right: 40px;
@@ -472,4 +435,5 @@ textarea {
       margin-left: 40px;
       margin-right: 40px;
     }
-  }
+    
+}

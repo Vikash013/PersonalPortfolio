@@ -1,11 +1,9 @@
 MUST DO:
 
-1) Finish Contact Section
+1) Remove White Space At Bottom
+2) RESPONSIVENESS
 
 POSSIBLE TO DO:
 
 1) Scrolling to make things appear?
-2) Typing animations for rest of website?
-3) READ ME for projects on GitHub
-4) RESPONSIVENESS 
-5) Finish JS for hamburger navbar
+2) Finish JS for hamburger navbar or remove and find different methods
