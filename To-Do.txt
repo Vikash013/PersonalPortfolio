@@ -1,9 +1,0 @@
-MUST DO:
-
-1) Remove White Space At Bottom
-2) RESPONSIVENESS
-
-POSSIBLE TO DO:
-
-1) Scrolling to make things appear?
-2) Finish JS for hamburger navbar or remove and find different methods

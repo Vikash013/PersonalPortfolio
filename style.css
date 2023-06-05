@@ -14,6 +14,11 @@
     /*NOTE: when border is uncommented it causes unwanted white space at bottom of site*/
 }
 
+main {
+    overflow-x: hidden;
+    /*stops white space on right of page when screen size is reduced*/
+}
+
 /*webkit selectors used to customise scrollbar*/
 body::-webkit-scrollbar {
     width: 0.5rem;
@@ -122,31 +127,12 @@ h1 {
     opacity: 1;
 }
 
-/*the greeting text on the first page and the typing animation*/
-.text-container {
+/*the greeting text on the first page*/
+.intro-container {
     position:absolute;
     top:40%;
     left: 80px;
-    padding-left: 10px;
-    border-right: 5px solid;
-    width: 37%;
     white-space: nowrap;
-    overflow: hidden;
-    animation: 
-        typing 2s steps(51),
-        cursor .4s step-end infinite alternate;
-}
-
-@keyframes cursor {
-    50% {
-        border-color: transparent;
-    }
-}
-
-@keyframes typing {
-    from {
-        width: 0;
-    }
 }
 
 /*the 3 seperate lines of the front page*/
@@ -178,9 +164,14 @@ main {
 #projects,
 #contact {
   height: 100vh;
+
+  /*3 lines below will make sure that the sections are contained when screen size is reduced and will not "spill" into other sections*/
+  content: "";
+  display: table;
+  clear: both;
 }
 
-/*affects the 3 seperate headings after home page (about, projects, contact)*/
+/*affects the 3 main headings - about, projects, contact)*/
 h2 {
     font-size: clamp(2rem, 4vw, 3rem); /*changes font-size based on screen size 'fluidly'*/
     font-weight: 600;
@@ -198,17 +189,17 @@ h2 {
 
 #about-container {
     background-color: #183964;
-    background-image: linear-gradient(to bottom right, #fafdff8f, #1b1b1b);
+    background-image: linear-gradient(to bottom right, #e9f4fc8f, #1b1b1b);
     color: #ebf7ff;
     margin-top: 75px;
-    margin-left: auto;
-    margin-right: auto;
     max-width: 1500px;
     font-style:monospace;
     letter-spacing: 1.5px;
     font-size: 20px;
     font-weight: 500;
     padding: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
     border-radius: 10px;
 }
 
@@ -262,12 +253,14 @@ article a {
     margin-left: 80px;
     margin-right: 80px;
     margin-top: 20px;
-    display: flex;
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
 }
 
 .card {
     background-color: white;
-    width: 23%;
+    flex: 1;
     height: 72vh;
     margin: 10px;
     border-radius: 15px;
@@ -315,6 +308,7 @@ article a {
 
 .card-image {
     height: 40%;
+    max-height: 300px;
     margin-bottom: 15px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -351,11 +345,19 @@ article a {
     background: var(--primary);
 }
 
+#contact {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .contact-me-container {
-    margin-top: 75px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1500px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 80px;
+    margin-top: 40px;
+    margin-right: 80px;
 }
 
 .contact-me-element {
@@ -363,11 +365,11 @@ article a {
     color: white;
     border-radius: 10px;
     border-color: #000000;
-    display: block;
     font-size: 20px;
     padding: 16px 16px;
-    margin: 26px 16px;
-    min-width: 90%;
+    margin: 24px 0;
+    width: 100%;
+    max-width: 1500px;
 }
 
 .contact-me-element:focus-within {
@@ -384,9 +386,62 @@ button:hover {
 
 footer {
     background-color: var(--dark);
-    color: #ffffff;
+    color: #ebf7ff;
+    padding: 20px 0;
+    text-align: center;
+}
+  
+.footer-content {
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.footer-text,
+.footer-links,
+.back-to-top {
+  flex: 1;
+}
+  
+.footer-links a {
+    color: #ebf7ff;
+    padding: 10px 25px;
+    text-decoration: none;
+    width: 100px;
+    text-align: center;
+}
+  
+.back-to-top a {
+    background-color: var(--primary);
+    color: #ebf7ff;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 99px;
 }
 
+.footer-links a:hover,
+.back-to-top a:hover {
+  background-color: var(--primary);
+  color: white;
+  transition: 0.4s;
+  border-radius: 99px;
+}
+  
+/*smooth transition of elements appearing when they become visible on screen*/
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
 
 /*makes navbar collapse when screen size is too small*/
 @media (min-width: 768px) {
@@ -397,13 +452,9 @@ footer {
 
 @media (max-width: 768px) {
 
-    .text-container {
-        width: auto;
-        padding-left: 0;
-        border-right: none;
+    .intro-container {
         white-space: normal;
         overflow: visible;
-        animation: typing 2s steps(51), cursor .4s step-end infinite alternate;
     }
 
     .p-intro {
@@ -435,5 +486,30 @@ footer {
       margin-left: 40px;
       margin-right: 40px;
     }
-    
+      
+    .contact-me-element {
+        font-size: 16px;
+        padding: 12px 12px;
+        margin: 16px 0;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+    }
+
+    .footer-links a, .back-to-top a {
+        font-size: 14px;
+        margin-right: 0;
+        margin-bottom: 10px;
+        padding: 20px 0;
+    }
+    .footer-text {
+        font-size: 14px;
+    }
 }

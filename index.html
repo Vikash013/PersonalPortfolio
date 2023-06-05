@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/a54d2cbf95.js"></script>
     <link rel="stylesheet" href="style.css" />
-    <script src="main.js"></script>
+    <script defer src="main.js"></script>
     <title>Portfolio</title>
   </head>
 
@@ -48,14 +48,14 @@
     </nav>
 
     <main>
-      <section id="home">
-        <div class="text-container">
+      <section id="home" class="hidden">
+        <div class="intro-container">
           <p class="p-intro">Hi! 👋 My name is</p>
           <p class="p-name">Vikash Singh</p>
           <p class="p-title">-Software Developer 💻</p>
         </div>
       </section>
-      <section id="about">
+      <section id="about" class="hidden">
         <br />
         <h2>About Me</h2>
         <div id="about-container">
@@ -120,12 +120,12 @@
             </div>
           </div>
           <p class="continue-to-projects-text">
-            <i>Psst!</i> Now that you've read a little about me, why not take a
-            look at some of the stuff I've built?
+            Now that you've read a little about me, why not take a look at some
+            of the stuff I've built?
           </p>
         </div>
       </section>
-      <section id="projects">
+      <section id="projects" class="hidden">
         <br />
         <h2>Projects</h2>
         <section id="projects-container">
@@ -211,16 +211,9 @@
               The inspiration behind this website stems from the notoriously
               complex and cluttered UI of the game itself which thus causes the
               task of monitoring camo completion status to be even more
-              complicated. By designing a user-friendly interface, this platform
-              aims to streamline the way camo progress is tracked.
-            </p>
-            <br />
-            <p>
-              For context, camos in Call of Duty are awarded when a player
-              completes a challenge with a specific weapon e.g. to get 50
-              headshots, 3 kills without dying etc. Completing all camos for a
-              specific gun or entire class of guns awards what is known as a
-              "mastery camo".
+              complicated. For context, camos in Call of Duty are awarded when a
+              player completes a challenge with a specific weapon e.g. to get 50
+              headshots with that weapon.
             </p>
             <br />
             <a href="" target="" id="lastlink">IN DEVELOPMENT</a>
@@ -228,7 +221,7 @@
           </div>
         </section>
       </section>
-      <section id="contact">
+      <section id="contact" class="hidden">
         <br />
         <h2>Contact Me</h2>
         <div class="contact-me-container">
@@ -272,7 +265,23 @@
           </form>
         </div>
       </section>
-      <footer>Dummy text</footer>
     </main>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-text">
+          <p>© 2023 Portfolio of Vikash Singh. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/vikash-singh01/" target="_blank"
+            >LinkedIn</a
+          >
+          <a href="https://github.com/Vikash013" target="_blank">GitHub</a>
+          <a href="pdf/Vikash.Singh.CV.pdf" target="_blank">View CV</a>
+        </div>
+        <div class="back-to-top">
+          <a href="#top">Back to Top</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
